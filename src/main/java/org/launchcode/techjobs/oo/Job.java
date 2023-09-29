@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import static java.lang.System.lineSeparator;
+
 public class Job {
 
     private int id;
@@ -85,7 +87,7 @@ public class Job {
         this.positionType = positionType;
     }
 
-    public CoreCompetency getCoreCompetency() {
+    public  CoreCompetency getCoreCompetency() {
         return coreCompetency;
     }
 
@@ -93,4 +95,45 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-}
+    @Override
+    public String toString() {
+        String outputValue = lineSeparator();
+   if (name==null){
+            name = "Data not available";
+        }
+
+         outputValue = outputValue+ "ID: " + id
+                       +lineSeparator()+ "Name: " + name +
+                        lineSeparator();
+
+
+        if (employer.getValue().isEmpty()){
+
+            outputValue =outputValue+ "Employer: " + "Data not available" +lineSeparator();
+
+        } else {
+
+            outputValue =outputValue+ "Employer: " + employer +lineSeparator();
+        }
+
+        if (location.getValue().isEmpty()){
+            outputValue =outputValue+"Location: " + "Data not available" +lineSeparator();
+
+        } else {
+            outputValue =outputValue+ "Location: " + location +lineSeparator();
+        }
+
+        if (positionType.getValue().isEmpty()){
+            outputValue =outputValue+"Position Type: " + "Data not available" +lineSeparator();
+        } else {
+            outputValue =outputValue+ "Position Type: " + positionType +lineSeparator();
+        }
+
+        if (coreCompetency.getValue().isEmpty()){
+            outputValue =outputValue+ "Core Competency: " + "Data not available" +lineSeparator();
+        } else {
+            outputValue =outputValue+ "Core Competency: " + coreCompetency  +lineSeparator();
+        }
+        return outputValue;
+    }
+    }
